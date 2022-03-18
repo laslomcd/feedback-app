@@ -8,23 +8,35 @@ export const FeedbackProvider = ({ children }) => {
         {
             id: 1,
             rating: 10,
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.",
+            text: "Feedback Item 1.",
         },
         {
             id: 2,
             rating: 9,
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.",
+            text: "Feedback Item 2.",
         },
         {
             id: 3,
             rating: 8,
-            text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. consequuntur vel vitae commodi alias voluptatem est voluptatum ipsa quae.",
+            text: "Feedback Item 3.",
         },
     ]);
+
+    const [feedbackEdit, setFeedbackEdit] = useState({
+        item: {},
+        edit: false
+    });
 
     const addFeedback = (newFeedback) => {
         newFeedback.id = uuidv4();
         setFeedback([newFeedback, ...feedback]);
+    }
+
+    const editFeedback = (item) => {
+        setFeedbackEdit({
+            item,
+            edit: true
+        });
     }
 
     const deleteFeedback = (id) => {
@@ -37,7 +49,9 @@ export const FeedbackProvider = ({ children }) => {
         value={{
             feedback,
             deleteFeedback,
-            addFeedback
+            addFeedback,
+            editFeedback,
+            feedbackEdit
         }}
     >
         {children}
