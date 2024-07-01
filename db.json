@@ -24,6 +24,11 @@
       "id": "56a1",
       "text": "Bad review test",
       "rating": 1
+    },
+    {
+      "text": "This is a updated item",
+      "rating": 8,
+      "id": "bc8c"
     }
   ]
 }
